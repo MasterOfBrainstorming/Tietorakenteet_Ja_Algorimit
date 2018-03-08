@@ -1,0 +1,60 @@
+#include <iostream>
+
+// Ohjelma lis‰‰ jokaisella kierroksella itseens‰ kierroksen luvun
+// Tulosteet: 
+// 1
+// 2
+// 4
+// 8
+// 16
+// 32
+// 64
+// 128
+// 256
+// 512
+// 1024
+// 2048
+// 4096
+
+
+// standardi nimiavaruus.
+using namespace std;
+
+//Luodaan aliohjelma, joka ei palauta mit‰‰n, mutta ottaa p‰‰ohjelmasta kokonaisluvun jonka nimeksi annetaa 'b'
+void luvut(int b) {
+// Alustetaan "k" kokonaisluvuksi ja sille m‰‰ritet‰‰n arvoksi 0
+	int k = 0;
+// Alustetaan muuttuja lukujono jolle annetaan pituudeksi 13     							
+	int lukujono[13];
+// Alustetaan lukujonon ensimm‰inen alkio numerolla 1						
+	lukujono[0] = { 1 };
+// Silmukka toimii niin kauan kun ehto k on pienmpi tai yht‰ suuri kuin b						
+	while (k <= b) {  
+// k muuttujaan lis‰t‰‰n joka kierroksella yksi numero lis‰‰						
+		k = k + 1; 		
+// Lukujonon k uusi indexi on 2x vanhan indexi paikan arvo	
+// (n+n), lukujonolistan alkiot alustetaan jokaisella kierroksella
+// k indexin kohdalle.
+// jos k = 2 niin lukujono[2] alustetaan luvulla 2, n‰in toteutaan
+// ylh‰‰ll‰ mainuttu tuloste
+//-----------------------------	
+// Lukujonon k uusi indexi on 2x vanhan indexi paikan arvo	      
+		lukujono[k] = { lukujono[k - 1] + lukujono[k - 1] };
+								     
+	}
+// Kokonaisluku 'i', joka on 32-bittinen
+	int i;		
+// Iteroidaan niin kauan kun i on pienemp‰‰ kuin b,
+// lis‰t‰‰n joka kierroksella 1 muuttujaan i			
+	for (i = 0; i<b; i++) { 					
+// Tulostetaan lukujonon alkiot, ensin 0->1->2..jne									
+		cout << lukujono[i] << endl;
+	}
+}
+
+//P‰‰ohjelma josta annetaan 'luvut' aliohjelmalle 32-bittinen (int)kokonaisluku 13
+int main()
+{
+	// P√§√§ohjelma testausta varten
+	luvut(13);
+}

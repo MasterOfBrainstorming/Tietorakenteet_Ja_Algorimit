@@ -1,0 +1,26 @@
+// Käytin for silmukkaa summatakseni dataset1 ja dataset2 yhteen, for silmukka käyttää muuttujaa i jokaisessa taulukossa
+// esim i=0 --> datacollect[0] = dataset1[0] + dataset2[0] eli 0 = 12 + 62
+// Ja niin edespäin.
+// Toinen for silmukka on vain tulostusta varten
+#include <iostream>
+
+using namespace std;
+
+int dataset1[10] = { 12, 3, 4, 61, 11, 2, 1, 9, 10, 8 };
+int dataset2[10] = { 62, 13, 50, 16, 11, 20, 3, 10, 3, 28 };
+int datacollect[10];
+
+int summaus(int data1[], int data2[]) {
+	for (int i = 0; i < 10; i++) {
+		datacollect[i] = data1[i] + data2[i];
+	}
+	for (int k = 0; k < 10; k++) {
+		cout << datacollect[k] << " ";
+	}
+	cout << endl;
+	return datacollect[10];
+}
+
+int main() {
+	summaus(dataset1, dataset2);
+}

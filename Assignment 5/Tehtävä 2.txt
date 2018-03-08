@@ -1,0 +1,50 @@
+// Linkitettyyn listaan tallennetaan seuraavat kokonaislukuarvot: 
+// 3, 31, 21, 52, 16, 91, 10 ja 5. Tallenna arvot linkitettyyn listaan 
+// ja toteuta hakufunktio haeLukua(), joka kutsuttaessa kysyy käyttäjältä 
+// haettavaa kokonaislukua ja ilmoittaa tuloksena mikäli se löytyy listalta.
+
+#include <iostream>
+
+using namespace std;
+
+
+int* point = new int();
+int temp,c;
+
+int list[] = { 3, 31, 21, 52, 16, 91, 10, 5 };
+
+void fuction(){
+	for (int i = 0; i < 8; i++) {
+		temp = list[i];
+		point[i] = temp;
+	}
+}
+
+int haelukua(int z) {
+	for (int j = 0; j < 8; j++) {
+		if (z == point[j]) {
+			c=1;
+		}
+		else {
+			continue;
+		}
+	}
+	return c;
+}
+
+void kysmys() {
+	int x;
+	cout << "Search a number\n>";
+	cin >> x;
+	int z = haelukua(x);
+	if (z == 1) { cout << "YUP\n"; }
+	else { cout << "NOUP\n"; }
+}
+
+void main() {
+	while (true) {
+		fuction();
+		kysmys();
+		c = 0;
+	}
+}

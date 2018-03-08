@@ -1,0 +1,48 @@
+// -Laadi algoritmi, joka kutsuttaessa toteuttaa seuraavat vaiheet :
+// -Kysy käyttäjältä taulukon koko
+// -Pyydä käyttäjää syöttämään alkiot(niin kauan, että taulukko on täynnä)
+// -Lajittele taulukon alkiot pienimmästä suurimpaan käyttäen kuplalajittelua
+// -Tulosta lopuksi ruudulle järjestetyn taulukon sisältö
+
+# include <iostream>
+
+using namespace std;
+
+int i, inp;
+
+void main()
+{
+	int siz, temp;
+	int* table;
+	cout << "How big table?\n>";
+	cin >> siz;
+	table = new int[siz];
+
+	for (i = 0; i < siz; i++)
+	{
+		cout << "Enter number[" << i << "]:\n>";
+		cin >> inp;
+		table[i] = inp;
+	}
+
+	for (int i2 = 0; i2 < siz; i2++)
+	{
+		for (int j2 = 0; j2 < siz - 1; j2++)
+		{
+			if (table[j2] > table[j2 + 1])
+			{
+				temp = table[j2];
+				table[j2] = table[j2 + 1];
+				table[j2 + 1] = temp;
+			}
+		}
+		if (i2 == siz - 1)
+		{
+			for (int k = 0; k < siz; k++)
+			{
+				cout << table[k] << " ";
+			}
+		}
+	}
+
+}

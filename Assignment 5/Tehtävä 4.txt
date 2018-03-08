@@ -1,0 +1,57 @@
+// Toteuta kaksisuuntaiselle linkitetylle listalle valikko, 
+// jossa on esitettynä seuraavat valinnat listan testaamiseen:
+
+// Lisää henkilö listaan
+// Etunimi
+// Sukunimi
+// Ikä
+// Näytä listan sisältö
+// Poistu ohjelmasta
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+
+struct a {
+	string fname, lname, age;
+	struct a *next;
+};
+
+a *first = NULL;
+a* list = new a;
+string inp;
+
+void addperson() {
+	cout << "Firstname:\n>";
+		cin >> inp;
+	list->fname = inp;
+	cout << "Lastname:\n>";
+		cin >> inp;
+	list->lname = inp;
+	cout << "Age:\n>";
+		cin >> inp;
+	list->age = inp;
+}
+
+
+void main() {
+	while (true)
+	{
+		cout << "Add person\n---Firstname\n---Lastname\n---Age\nPrint List\nExit\n>";
+		cin >> inp;
+		if (inp == "add person" || inp == "add") {
+		addperson();
+	}
+	else if (inp == "print list" || inp == "print") {
+		cout << list;
+	}
+	else if (inp == "exit") {
+		break;
+	}
+	else { cout << "no such input"; }
+	}
+
+}

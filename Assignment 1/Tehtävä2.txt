@@ -1,0 +1,63 @@
+// Annetaan p‰‰ohjelmassa jokin numero aliohjelmalle luku(5).
+// n muuttujasta miinustetaan 1, arvoksi tulee 4.
+// Luku sitten annetaan fibo aliohjelmalle muuttujana n.
+// Fibo aliohjelmassa katsotaan jos n on 0 tai 1, jos ehto toteutuu niin palautetaan arvona 1
+// n=4
+// Jos 'n = 0 tai n = 1' ei toteudu niin palautetaan muuttuja tulos, jonka arvo tulee laskusta (n - 2)+(n - 1)
+// ( 4 - 2 ) + ( 4 - 1 ) = 5
+// Fibo aliohjelmalle palautetaan luku n eli 5
+// Toinen lasku fibo(5):
+// ( 5 - 2 ) + ( 5 - 1 ) = 7
+// Palautetaan 7
+// Palautetut arvot:
+// fibo(5) / fibo(7)
+// Suoritetaan jakolasku 5 / 7
+
+// Tulosteet:
+// 0 = -5
+// 3 = 0.333333
+// 5 = 0.714286
+
+
+#include <iostream>
+
+// K‰ytet‰‰n standaria nimiavaruutta
+using namespace std;						
+
+// n=4 jos syˆtet‰‰n p‰‰ohjelmassa luku(5)
+float fibo(float n) {
+// jos n on 0 tai 1 niin palautetaan 1						
+	if (n == 0 || n == 1) {					
+		return 1;			
+	}
+// Kun n ei ole 0 tai 1
+	else {	
+// M‰‰ritet‰‰n liukuluku, jonka nimi on tulos						
+		float tulos;	
+// (4 - 2) + (4 - 1) = 5
+// Kun n = 5 tulos on 7					
+		tulos = (n - 2) + (n - 1);			
+// Palautetaan tulos takaisin luku aliohjelmaan						
+		return tulos;
+	}
+}
+// Ottaa p‰‰ohjelmalta liukuluvun esim 5.000
+float luku(float n) {	
+// Antaa fibo aliohjelmalle 5-1 eli 4 syˆtteeksi ja palauttaa arvon 5. Sitten fibolle syˆtteeksi 5 ja palauttaa arvon 7					
+	float tulos = fibo(n - 1) / fibo(n);			
+// Suoritetaan jakolasku 5 / 7
+// Tuloksen arvo = 0.7141285731								
+	cout << tulos << endl;
+// Ohjelmassa oli virhe niin palautetaan 0.					
+	return 0;		
+}
+
+// P‰‰ohjelma
+int main()							
+{
+								// P√§√§ohjelma testausta varten
+// Kutsutaan luku aliohjelmaa muutujilla 0,3,5
+	luku(0);						
+	luku(3);
+	luku(5);	
+}

@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+char ekat[8] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
+char tokat[8] = { 'e', 'b', 'c', 'g', 'a', 'f', 'd', 'h' };
+char matches[8];
+int n = 8, x, y;
+
+
+
+int jarjes_vertaa() {
+
+	int temp;
+	for (int i2 = 0; i2 <= 8; i2++)
+	{
+		for (int j2 = 0; j2<7; j2++)
+		{
+			if (tokat[j2] > tokat[j2 + 1])
+			{
+				temp = tokat[j2];
+				tokat[j2] = tokat[j2 + 1];
+				tokat[j2 + 1] = temp;
+			}
+		}
+	}
+	for (int d = 0; d < 8; d++)
+	{
+		cout << tokat[d];
+	}
+	for (int x = 0; x < 8; x++)
+	{
+		if (ekat[x] == tokat[x])
+		{
+			matches[x] = ekat[x];
+		}
+	}
+	cout << "\nMatches: ";
+	for (int x2 = 0; x2 < 8; x2++)
+	{
+		cout << matches[x2] << " ";
+	}
+	return 0;
+}
+
+
+
+int main() {
+			jarjes_vertaa();
+
+}

@@ -1,0 +1,27 @@
+# include <iostream>
+# include <stack>
+# include <queue>
+
+
+using namespace std;
+stack <int> container;
+
+void main() {
+
+	int inp = 1, x = 0;
+	while (inp != 0) {
+		cout << "Number[" << x << "]\n>";
+		cin >> inp;
+		container.push(inp);
+		x++;
+		if (inp == 0) {
+			container.pop();
+		}
+	}
+	while (!container.empty()) {
+		int w = container.top();
+		std::cout << w << " " ;
+		container.pop();
+	}
+	cout << "\n";
+}

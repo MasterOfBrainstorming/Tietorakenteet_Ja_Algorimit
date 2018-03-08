@@ -1,0 +1,56 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+
+stack <int> container;
+
+void add() {
+	int x;
+	cout << "Alkio:\n>";
+	cin >> x;
+	container.push(x);
+	cout << endl;
+}
+
+void poppi() {
+	container.pop();
+}
+
+void printti() {
+	cout << "Stack:\n";
+	while (!container.empty()) {
+		int w = container.top();
+		cout << w << " ";
+		container.pop();
+	}
+	cout << "\n";
+}
+void sizu() {
+	cout << "Size:" << container.size()<<"\n";
+}
+
+int main()
+{
+	int inp = 6;
+	while (inp != 5) {
+		cout << "1.Syötä pinoon uusi alkio\n2.Poista pinosta alkio\n3.Tulosta pinon sisältö\n4.Tulosta pinon koko\n5.Poistu ohjelmasta\n\n>";
+		cin >> inp;
+		if (inp == 1) {
+			add();
+		}
+		else if (inp == 2) {
+			poppi();
+		}
+		else if (inp == 3) {
+			printti();
+		}
+		else if (inp == 4) {
+			sizu();
+		}
+		else {
+			cout << "Wrong input";
+		}
+	}
+}

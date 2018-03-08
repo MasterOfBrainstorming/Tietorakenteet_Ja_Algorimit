@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+char kirjaimet[5] = { 'a','b','c','d','e' };
+int x = 0;
+stack <char> container;
+stack <char> newcontainer;
+
+char stakki() {
+	for (int i = 0; i < 5; i++) {
+		cout << "STATUS [" << x << "]\nTo stack: " << kirjaimet[i] << "\n";
+		container.push(kirjaimet[i]);
+		cout << "Size: " << container.size()<<"\nIn stack: ";
+		x++;
+		newcontainer = container;
+		while (!container.empty()) {
+			cout << container.top() << " ";
+			container.pop();
+		}
+		cout << endl<<endl;
+		container = newcontainer;
+	}
+	return 1;
+}
+
+
+int main()
+{
+	stakki();
+}

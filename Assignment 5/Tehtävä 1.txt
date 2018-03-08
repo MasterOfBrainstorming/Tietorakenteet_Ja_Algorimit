@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+// oma class
+struct piste {
+	int luku;
+	struct piste *next;
+};
+// tehdään eka pointteri joka on tyyppiä piste
+piste *eka = NULL;
+
+// Funktion joka vaatii int alkion ja palauttaa int alkion
+int funktio2(int x) {
+	// jaetaan x alkio 2 saadaan y
+	int y = x / 2;
+	// palautetaan y
+	return y;
+}
+
+void funktio1() {
+	// tehdään uusi pointteri, käyttämällä omaa classiä
+	piste *uusi = new piste;
+	// pointterin sisään lisätään muuttuja 'luku' , jonka alkio on funktion 1 palauttama arvo
+	uusi->luku = funktio2(126);
+	// lisätään pointteriin uusi muuttuja 'next' , jonka arvo on NULL eli määräämätön
+	uusi->next = NULL;
+	// eka on uusi eli 'uusi' pointterin sisältö kopioidaan eka pointteriin
+	eka = uusi;
+	// ja taas uusi pointteri joka kopioi 'eka' pointterista arvot itseensä
+	piste *cur = eka;
+	// 'cur' arvo on cur->next eli NULL (muuttuja tuhoutuu)
+	cur = cur->next;
+	// taas uusi pointteri joka saa kaikki 'eka' pointterin arvot
+	struct piste *lista = eka;
+	// tulostetaan lista pointterin sisällä olevan luku muuttuja arvo
+	cout << lista->luku;
+}
+
+int main()
+{
+	funktio1();
+}

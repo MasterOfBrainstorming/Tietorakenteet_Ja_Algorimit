@@ -1,0 +1,37 @@
+// Toteuta funktio sanalista(), joka kutsuttaessa 
+// ottaa käyttäjältä syötteenä linkitetyn listan 
+// solmujen määrän, pyytää tämän jälkeen käyttäjää 
+// syöttämään merkkijonoja listaan ja tulostaa lopulta 
+// listan sisällön ruudulle.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int siz;
+
+void sanalista(int x) {
+	string* nakki = new string[x];
+	string makkara;
+	for (int i = 0; i < x; i++) {
+		cout << "Pointer " << i << " value:\n>";
+		cin >> makkara;
+		nakki[i] = makkara;
+	}
+	cout << "Pointers values:\n";
+	for (int j = 0; j < x; j++) {
+		cout <<"# " << j << ": " << nakki[j] << endl;
+	}
+}
+
+void kysym() {
+	cout << "How long pointer?\n>";
+	cin >> siz;
+	sanalista(siz);
+}
+
+void main() {
+	while (true) {
+		kysym();
+	}
+}

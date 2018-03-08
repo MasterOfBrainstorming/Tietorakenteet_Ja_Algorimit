@@ -1,0 +1,39 @@
+#include<iostream>
+
+/** Kysytään käyttäjältä loopin pituutta, alustetaan muuttujat numb1, numb2 ja output **
+** Aloitetaan for silmukka, alustamalla muuttuja i numerolla 0, niin kauan kuin i on  **
+** pienempää kuin käyttäjän syöttämä loop pituus, lisätään i muuttujaan jokaisella    **
+** kierroksella 1 lisää.							      **
+** if ehto, jos i on yhtäsuurta tai pienempää kuin 1 niin tuloste on i muuttujan arvo ** 
+** kun i > 1 niin toteutetaan else ehtoa, tuloste on numbero 1 + numero 2	      **
+** numb1 muuttujan alkion tilalle laitetaan muuttujan numb2 alkio ja muuttujan numb2  **
+** tilalle laitetaan muuttujan output alkio.					      **
+** Tulostetaan jokaisella kierroksella numero.					      **
+** Palautetaan 0 kun silmukka on suoritettu					      ** 
+*/
+
+
+
+using namespace std;
+
+int main()
+{
+	cout << "Please input size of the loop:\n> ";
+	int loops;
+	cin >> loops;
+	int numb1 = 0;
+	int numb2 = 1;
+	int output;
+	for (int i = 0; i < loops; i++) {
+		if (i <= 1)
+			output = i;
+		else {
+			output = numb1 + numb2;
+			numb1 = numb2;
+			numb2 = output;
+		}
+		cout << output << endl;
+	}
+
+	return 0;
+}

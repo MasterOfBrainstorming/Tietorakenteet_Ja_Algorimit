@@ -1,0 +1,55 @@
+/* Ohjelma kysyy k‰ytt‰j‰lt‰ 2kpl positiivisia lukuja, tekee niist‰‰ murtoluvut joita juuri ohjelma kutsuu 
+** Float aliohjelmassa alustetaan annetut muuttujat tarkistetaan ett‰ luvut ovat varmasti positiivisia	 
+** k‰ytt‰m‰ll‰ fabs()sia, jos luvut ovat negatiivisia niin ne muuttuvat positiivisiksi.	
+** Alustetaan vanha_x muuttuja murtoluvuksi.	
+** T‰m‰n j‰lkeen aloitetaan ikuinen while looppi, jonka sis‰ll‰ alustetaan uusi_x muuttuja, jolle m‰‰r‰t‰‰n
+** matemaattinen yht‰lˆ. Ehto p‰tee niin kauan kun else if ehto toteutuu	
+** Aloitetaan if-ehto jos |uusi_x-vanha_x| on suurempaa kuin b niin suoritetaan lauseke.
+** Aloitetaan toinen ehto tulostetta varten, miss‰ vain katsotaan kumpi tuloste tulostetaan.	
+** vanha_x:n alkio korvataan uusi_x:n alkiolla jokaisella kierroksella kun  |uusi_x-vanha_x| > b
+** Muuten jos |uusi_x-vanha_x| on pienemp‰‰ tai yht‰ suurta kuin b niin p‰‰tet‰‰n silmukka	
+** ja tulostetaan lopputulos.		
+** Jos mik‰‰n ehto ei p‰de, lopetetaan ohjelma suoriltaan.
+*/
+
+#include <iostream>
+#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+
+float juuri(float a, float b)
+{
+	a = fabs(a);
+	b = fabs(b);
+	float vanha_x = 1.0;
+	while (true) {
+
+		float uusi_x = 0.5 * (vanha_x + a / vanha_x);
+		float miinus = uusi_x - vanha_x;
+		if (fabs(miinus) > b) {
+			if (uusi_x > vanha_x) {cout << uusi_x << "-" << vanha_x << " > " << b << endl;}
+			else { cout << vanha_x << "-" << uusi_x << " > " << b << endl; }
+			vanha_x = uusi_x;
+		}
+
+		else if (fabs(miinus) <= b) {
+			cout << "\nUUSI_X: " << uusi_x << "\nVANHA_X: " << vanha_x
+				<< "\nEROTUS: " << uusi_x - vanha_x << "\nB: " << b
+				<< "\n|LOPPUTULOS| " << b << " => " << fabs(miinus) << endl;
+			return uusi_x;
+			break;
+		}
+
+		else { exit; }
+	}
+
+}
+void main() {
+	float a, b;
+	cout << "Input 2 numbers please use SPACE as a separator. Then press ENTER:\n>";
+	cin >> a >> b;
+	juuri(a, b);
+}

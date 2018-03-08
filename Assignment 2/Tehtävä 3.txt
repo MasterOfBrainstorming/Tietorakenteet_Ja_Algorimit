@@ -1,0 +1,31 @@
+// Käytin for silmukkaa katsomaan dataset[] taulukon sisälle ja if lauseketta tarkastamaan onko alkio parillinen vai pariton
+// If lausekkeessa todennan jakojäännöksellä onko luku parillinen, jos on niin alkio tallennetaan parillisen taulukon alkio paikalle
+// i
+// Jos ehto ei toteudu niin se tarkoittaa sitä, että luku on pariton ja se menee parilliseen taulukkoon
+// Lopuksi käytän molemmille taulukoille omia for silmukoita, jotta syöte olisi nätimpi 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int dataset[10] = { 12, 3, 4, 6, 11, 2, 1, 9, 10, 8 };
+int even[10], odd[10];
+
+
+int luokittelu() {
+	for (int i = 0; i < 10; i++) {
+		if (dataset[i] % 2 == 0) { even[i] = dataset[i]; }
+
+		else { odd[i] = dataset[i]; } 
+	}
+	cout << "Even numbers >";
+	for (int x = 0; x < 10; x++) { cout << even[x] << " "; }
+	cout << "\nOdd numbers >";
+	for (int z = 0; z < 10; z++) { cout << odd[z] << " "; }
+	return 0;
+}
+
+int main() {
+	luokittelu();
+}

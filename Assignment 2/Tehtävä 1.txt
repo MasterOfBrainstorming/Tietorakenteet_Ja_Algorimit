@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+// Alustetaan 32-bittinen 5 paikkainen taulukko, johon m‰‰ritet‰‰n valmiiksi 5 alkiota 
+int viesti[5] = { 79, 73, 75, 69, 65 };
+// --------------------------------------||------------------------------------------
+int avain[5] = { 1, 3, 0, 4, 2 };
+// Alustetaan 32-bittinen 5 paikkainen tyhj‰ taulukko ({0,0,0,0,0}) 
+int tulos[5];
+// Alustetaan 32-bittinen kokonaisluku
+int paikka;
+
+
+// Aliohjelma ottaa 2kpl 32-bittist‰ 5 paikkaista taulukkoa
+// Aliohjelma ei palauta mit‰‰n
+void sekoita(int viesti[5], int avain[5]) {
+	// Niin kauan kuin ehto p‰tee ( k on pienemp‰‰ kuin 5, lis‰t‰‰n k+1 jokaisella kierroksella)
+	for (int k = 0; k < 5; k++) {
+		// Muuttujan "paikka" alkio korvataan kierroksen avain alkiolla
+		// Ensimm‰isell‰ kierroksella avain[k] = 1 seuraavalla 3 seuraavalla 0, sitten 4 ja viimeisell‰ 2
+		paikka = avain[k];
+		// Lis‰t‰‰n alkiot tulos taulukon sis‰‰n
+		// Ensimm‰isell‰ kierroksella paikalle [1] eli taulukossa paikka 2
+		// sijoitetaan 79, seuraavaksi taulukon[3] eli 4 paikalle sijoitetaan 73
+		// paikalle [0](ensimm‰inen paikka) sijoitetaan 75, paikalle [4] (viimeinen alkio taulukossa) sijoitetaan 69
+		// ja lopuksi paikalle [2] (3paikka) sijoiteaan 65
+		tulos[paikka] = viesti[k];
+	}
+	// Tulostetaan tulos taulukon alkiot k‰ytt‰en for silmukkaa
+	for (int i = 0; i < 5; i++) {
+		cout << tulos[i] << endl;
+	}
+}
+
+// Kutsutaan aliohjelmaa sekoita() taulukoilla viesti ja avain
+int main() {
+	sekoita(viesti, avain);
+}
