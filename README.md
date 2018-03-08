@@ -1,2 +1,2 @@
 # Tietorakenteet_Ja_Algorimit
-Assignments and exercises
+Assignments and exercises written in C++
